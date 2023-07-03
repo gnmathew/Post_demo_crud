@@ -10,9 +10,30 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(params[:post].permit(:title, :content))
        if @post.save
-         redirect_to posts_path
+        flash[:notice] = 'Post created successfully'
+        redirect_to posts_path
        else
-         render :new, status: :unprocessable_entity
+        flash.now[:alert] = 'Post create failed'
+        render :new, status: :unprocessable_entity
+       end
+    end
+
+    def show
+        @post = Post.find(params[:id])
+    end
+
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    def update
+      @post = Post.find(params[:id])
+      if @post.update(params.require(:post).permit(:title, :content))
+        flash[:notice] = 'Post updated successfully'
+        redirect_to posts_path
+      else
+        flash.now[:alert] = 'Post update failed'
+        render :edit, status: :unprocessable_entity
        end
     end
 
