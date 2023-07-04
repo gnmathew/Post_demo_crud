@@ -3,9 +3,9 @@
 
 <table>
   <thead>
-  <td>title</td>
-  <td>content</td>
-  <td>action</td>
+  <td><h4>Title</h4></td>
+  <td><h4>Content</h4></td>
+  <td><h4>Action</h4></td>
   </thead>
   <%= link_to 'New', new_post_path %>
   <% @posts.each do |post| %>
@@ -18,6 +18,7 @@
         <%= link_to 'Edit', edit_post_path(post) %>
         <%= button_to 'Delete', post_path(post), method: :delete %>
         <%= link_to 'Comments', post_comments_path(post) %>
+        <%= link_to 'New Comment', new_post_comment_path(post) %>
       </td>
     </tr>
   <% end %>
