@@ -3,15 +3,20 @@
 
 <table>
   <thead>
-    <td>title</td>
-    <td>content</td>
-    <td>action</td>
+  <td>title</td>
+  <td>content</td>
+  <td>action</td>
   </thead>
+  <%= link_to 'New', new_post_path %>
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.title %></td>
       <td><%= post.content %></td>
       <td></td>
+      <td>
+        <%= link_to 'Show', post_path(post) %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+      </td>
     </tr>
   <% end %>
 </table>
