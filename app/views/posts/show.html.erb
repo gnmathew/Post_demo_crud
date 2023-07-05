@@ -2,5 +2,6 @@
 <ul>
   <li><%= @post.title %></li>
   <li><%= @post.content %></li>
+  <li><%= @post.user&.email %></li>
 </ul>
 <%= link_to 'Index', posts_path %>
