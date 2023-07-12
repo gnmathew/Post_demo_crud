@@ -1,12 +1,19 @@
 <h1>All Posts</h1>
-<h1>Post List</h1>
+
+<% if user_signed_in? %>
+  <h4> Hello <%= current_user.email %> </h4>
+  <%= link_to 'Sign out', destroy_user_session_path, data: { 'turbo-method': :delete } %>
+<% else %>
+  <%= link_to 'Sign in', new_user_session_path %>
+<% end %>
 
 <table>
   <thead>
   <td><h4>Title</h4></td>
   <td><h4>Content</h4></td>
+  <td><h4>Comments count</h4></td>
+  <td><h4>Category</h4></td>
   <td><h4>User</h4></td>
-  <td><h4>comments count</h4></td>
   <td><h4>Action</h4></td>
   </thead>
   <%= link_to 'New', new_post_path %> &nbsp
@@ -15,10 +22,10 @@
     <tr>
       <td><%= post.title %></td>
       <td><%= post.content %></td>
-      <td><%= post.user&.email %></td>
       <td><%= post.comments_count %></td>
       <td><%= post.categories.pluck(:name).join(',') %></td>
-      
+      <td><%= post.user&.email %></td>
+
       <td>
         <%= link_to 'Show', post_path(post) %>
         <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && post.user == current_user %>
