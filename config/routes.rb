@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
   resources :categories, except: :show
 
+  resource :user
+
 end

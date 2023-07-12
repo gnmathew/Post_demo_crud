@@ -14,6 +14,7 @@
   <td><h4>Comments count</h4></td>
   <td><h4>Category</h4></td>
   <td><h4>User</h4></td>
+  <td><h4>Created at</h4></td>
   <td><h4>Action</h4></td>
   </thead>
   <%= link_to 'New', new_post_path %> &nbsp
@@ -25,6 +26,7 @@
       <td><%= post.comments_count %></td>
       <td><%= post.categories.pluck(:name).join(',') %></td>
       <td><%= post.user&.email %></td>
+      <td><%= post.created_at %></td>
 
       <td>
         <%= link_to 'Show', post_path(post) %>
