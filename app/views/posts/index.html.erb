@@ -27,6 +27,7 @@
       <td><%= post.categories.pluck(:name).join(',') %></td>
       <td><%= post.user&.email %></td>
       <td><%= post.created_at %></td>
+      <td><%= post.created_at.to_fs %></td>
 
       <td>
         <%= link_to 'Show', post_path(post) %>
