@@ -19,6 +19,10 @@
     <%= form.collection_radio_buttons :genre_id, Genre.all, :id, :name %>
   </div>
   <div>
+    <%= form.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] }, {},
+                    data: { placeholder: 'Please select genre' }, class: 'select2 w-25' %>
+  </div>
+  <div>
     <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
   </div>
   <%= form.submit %>
