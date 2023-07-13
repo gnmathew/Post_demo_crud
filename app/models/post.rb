@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :post_category_ships
   has_many :categories, through: :post_category_ships
+  has_many :post_mood_ships
+  has_many :posts, through: :post_mood_ships
 
   belongs_to :genre
   belongs_to :user
