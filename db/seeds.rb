@@ -24,3 +24,8 @@ end
   end
   puts "finish #{i} post"
 end
+
+%w[Happy Angry Sad In_love].each do |name|
+  mood = Mood.create(name: name)
+  puts "create mood name: #{mood.name}"
+end
