@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user, :categories, :moods).page(params[:page]).per(5)
+    @today_posts = Post.today.recent
+    @region_posts = Post.includes(:region).filter_by_region('Region V').recent
   end
 
   def new

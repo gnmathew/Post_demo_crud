@@ -41,3 +41,37 @@
 </table>
 
 <%= paginate @posts %>
+
+<hr>
+<h1>Today Posts</h1>
+<table>
+  <thead>
+  <td><%= Post.human_attribute_name(:title) %></td>
+  <td><%= Post.human_attribute_name(:content) %></td>
+  <td>created at</td>
+  </thead>
+  <% @today_posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td><%= post.created_at.to_fs %></td>
+    </tr>
+  <% end %>
+</table>
+
+<hr>
+<h1>Region V Posts</h1>
+<table>
+  <thead>
+  <td><%= Post.human_attribute_name(:title) %></td>
+  <td><%= Post.human_attribute_name(:content) %></td>
+  <td>address</td>
+  </thead>
+  <% @region_posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td><%= "#{post.region&.name} #{post.province&.name} #{post.address}" %></td>
+    </tr>
+  <% end %>
+</table>

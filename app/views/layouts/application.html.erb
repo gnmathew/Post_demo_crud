@@ -19,6 +19,7 @@
       <p class="alert"><%= alert %></p>
     <% end %>
     <%= link_to 'edit user', edit_user_path if current_user%>
+    <%= link_to 'personal information', user_path if current_user %>
 
 
     <%= yield %>
