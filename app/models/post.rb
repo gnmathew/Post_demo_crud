@@ -4,11 +4,10 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  scope :recent, -> { order(created_at: :desc) }
-  scope :today, -> { where('created_at >= ?', Time.current.beginning_of_day) }
-  scope :filter_by_region, -> (region_name) { where(region: {name: region_name } )}
+  # scope :recent, -> { order(created_at: :desc) }
+  # scope :today, -> { where('created_at >= ?', Time.current.beginning_of_day) }
+  # scope :filter_by_region, -> (region_name) { where(region: {name: region_name } )}
 
-  delegate :email, to: :user
 
   has_many :comments
   has_many :post_category_ships
