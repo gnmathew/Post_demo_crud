@@ -12,4 +12,3 @@ def show
   barangay = Address::Barangay.find(params[:id])
   render json: barangay
 end
-end
